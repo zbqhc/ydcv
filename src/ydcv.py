@@ -163,6 +163,23 @@ def print_explanation(orig_word, data, options):
             print(*map("     * {0}".format, _b['explains']), sep='\n')
         else:
             print()
+            
+        
+        # 考试信息
+        if 'exam_type' in _b:
+            print()
+            print(_c('  Examination:', 'cyan'))
+            print(*map("     {0}".format, _b['exam_type']), sep=' ')
+        else:
+            print()
+
+        # 词性变化
+        if 'wfs' in _b:
+            print()
+            print(_c('  Participle:', 'cyan'))
+            print(*map(lambda x:"     * {0}: {1}".format(x['wf']['name'], x['wf']['value']), _b['wfs']), sep='\n')
+        else:
+            print()
 
     # translation	text	翻译结果	查询正确时一定存在
     elif 'translation' in _d:
